@@ -1,36 +1,46 @@
 # PHP Packer Config
 
-PHP Packer的配置管理组件，负责配置的加载、验证和管理。
+[English](README.md) | [中文](README.zh-CN.md)
 
-## 功能
+[![Latest Version](https://img.shields.io/packagist/v/tourze/php-packer-config.svg?style=flat-square)](https://packagist.org/packages/tourze/php-packer-config)
+[![Build Status](https://img.shields.io/travis/tourze/php-packer-config/master.svg?style=flat-square)](https://travis-ci.org/tourze/php-packer-config)
+[![Quality Score](https://img.shields.io/scrutinizer/g/tourze/php-packer-config.svg?style=flat-square)](https://scrutinizer-ci.com/g/tourze/php-packer-config)
+[![Total Downloads](https://img.shields.io/packagist/dt/tourze/php-packer-config.svg?style=flat-square)](https://packagist.org/packages/tourze/php-packer-config)
 
-- 配置文件加载和解析
-- 配置验证和错误处理
-- 提供统一的配置接口
+A lightweight and robust configuration management component for PHP Packer, responsible for loading, validating, and managing configuration files.
 
-## 安装
+## Features
+
+- Load and parse configuration files
+- Validate configuration and handle errors
+- Unified configuration access interface
+- Flexible configuration options and extensibility
+
+## Installation
+
+**Requirements:** PHP >= 8.1, psr/log
 
 ```bash
 composer require tourze/php-packer-config
 ```
 
-## 使用方法
+## Quick Start
 
-### 基本用法
+### Basic Usage
 
 ```php
 use PhpPacker\Config\Configuration;
 use Psr\Log\LoggerInterface;
 
-// 创建配置实例
+// Create a configuration instance
 $configuration = new Configuration('path/to/config.php', $logger);
 
-// 读取配置
+// Read configuration values
 $entryFile = $configuration->getEntryFile();
 $outputFile = $configuration->getOutputFile();
 ```
 
-### 配置文件示例
+### Example Config File
 
 ```php
 // config.php
@@ -50,20 +60,30 @@ return [
 ];
 ```
 
-## 配置选项
+## Configuration Options
 
-| 选项 | 类型 | 默认值 | 描述 |
-|------|------|--------|------|
-| entry | string | - | 入口文件路径（必需） |
-| output | string | - | 输出文件路径（必需） |
-| exclude | array | [] | 要排除的文件或目录模式 |
-| assets | array | [] | 要复制的资源文件(源路径 => 目标路径) |
-| minify | bool | false | 是否压缩代码 |
-| comments | bool | true | 是否保留注释 |
-| debug | bool | false | 是否启用调试模式 |
-| clean_output | bool | false | 是否在生成前清理输出目录 |
-| remove_namespace | bool | false | 是否移除命名空间 |
+| Option           | Type    | Default | Description                            |
+|------------------|---------|---------|----------------------------------------|
+| entry            | string  | -       | Entry file path (required)             |
+| output           | string  | -       | Output file path (required)            |
+| exclude          | array   | []      | Patterns for files/directories to skip |
+| assets           | array   | []      | Asset files mapping (source => target) |
+| minify           | bool    | false   | Whether to minify code                 |
+| comments         | bool    | true    | Keep comments in output                |
+| debug            | bool    | false   | Enable debug mode                      |
+| clean_output     | bool    | false   | Clean output directory before build    |
+| remove_namespace | bool    | false   | Remove namespace from output           |
 
-## 许可证
+## Contribution Guide
 
-MIT
+- Issues and PRs are welcome
+- Follow PSR coding standards
+- Please ensure tests pass before submitting
+
+## License
+
+MIT License
+
+## Changelog
+
+See [CHANGELOG](../../CHANGELOG.md)
