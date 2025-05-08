@@ -2,6 +2,7 @@
   "name": "tourze/php-packer-config",
   "description": "配置管理工具，用于PHP Packer的配置加载、验证和管理",
   "type": "library",
+  "license": "MIT",
   "require": {
     "php": "^8.1",
     "psr/log": "^3|^2|^1"
@@ -10,7 +11,6 @@
     "phpstan/phpstan": "^2.1",
     "phpunit/phpunit": "^10.0"
   },
-  "license": "MIT",
   "autoload": {
     "psr-4": {
       "PhpPacker\\Config\\": "src/"
